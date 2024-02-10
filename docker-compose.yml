@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  puppeteer:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    cap_add:
+      - SYS_ADMIN
+    stdin_open: true
+    tty: true
+    # command: ["google-chrome-stable", "--no-sandbox", "--headless", "--disable-gpu", "--print-to-pdf", "https://shgrid.dev"]
+    # command: ["tail", "-f", "/dev/null"]
+    command: ["bun", "dev"]
+    init: true 
+    # user: bun
+    user: pptruser
+    volumes:
+      - ./src:/app/src
+      - ./output:/output
+
+
+  # puppeteer:
+  #   image: ghcr.io/puppeteer/puppeteer:latest
+  #   cap_add:
+  #     - SYS_ADMIN
+  #   stdin_open: true
+  #   tty: true
+  #   # command: ["google-chrome-stable", "--no-sandbox", "--headless", "--disable-gpu", "--print-to-pdf", "https://shgrid.dev"]
+  #   command: ["tail", "-f", "/dev/null"]
+  #   working_dir: /output
+  #   user: root
+  #   init: true 
+  #   volumes:
+  #     - ./output:/output
+  #

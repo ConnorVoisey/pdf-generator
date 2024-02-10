@@ -1,0 +1,21 @@
+{
+  "name": "pdf-generator",
+  "type": "module",
+  "scripts": {
+    "dev": "bun --watch run src/index.ts",
+    "lint": "bun biome lint src",
+    "format": "bun biome format --write src",
+    "typecheck": "tsc"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.5.1",
+    "bun-types": "1",
+    "kysely-codegen": "^0.11.0",
+    "typescript": "5"
+  },
+  "dependencies": {
+    "@elysiajs/swagger": "^0.8.5",
+    "elysia": "0.8",
+    "puppeteer": "^22.0.0"
+  }
+}
