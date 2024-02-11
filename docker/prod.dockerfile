@@ -1,6 +1,5 @@
 FROM oven/bun
 
-
 # Install latest chrome dev package and fonts to support major charsets (Chinese, Japanese, Arabic, Hebrew, Thai and a few others)
 # Note: this installs the necessary libs to make the bundled version of Chromium that Puppeteer
 # installs, work.
@@ -43,16 +42,16 @@ RUN touch .env
 COPY package.json .
 COPY bun.lockb .
 
-RUN bun install
-# RUN bun install --production
+# RUN bun install
+RUN bun install --production
 
 RUN bun run node_modules/puppeteer/install.mjs
 
 COPY src src
 COPY tsconfig.json .
-# COPY public public
 
 ENV NODE_ENV production
-# CMD ["bun", "src/index.ts"]
+CMD ["bun", "src/index.ts"]
 
 EXPOSE 3000
+

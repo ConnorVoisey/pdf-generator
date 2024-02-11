@@ -9,6 +9,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^1.5.1",
+    "@elysiajs/eden": "^0.8.1",
     "bun-types": "1",
     "kysely-codegen": "^0.11.0",
     "typescript": "5"

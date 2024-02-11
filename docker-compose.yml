@@ -4,7 +4,7 @@ services:
   puppeteer:
     build: 
       context: .
-      dockerfile: Dockerfile
+      dockerfile: docker/dev.dockerfile
     ports:
       - '3000:3000'
     cap_add:
@@ -14,25 +14,11 @@ services:
     # command: ["google-chrome-stable", "--no-sandbox", "--headless", "--disable-gpu", "--print-to-pdf", "https://shgrid.dev"]
     # command: ["tail", "-f", "/dev/null"]
     command: ["bun", "dev"]
+    # command: ["bun", "--watch", "test"]
     init: true 
     # user: bun
     user: pptruser
     volumes:
       - ./src:/app/src
+      - ./test:/app/test
       - ./output:/output
-
-
-  # puppeteer:
-  #   image: ghcr.io/puppeteer/puppeteer:latest
-  #   cap_add:
-  #     - SYS_ADMIN
-  #   stdin_open: true
-  #   tty: true
-  #   # command: ["google-chrome-stable", "--no-sandbox", "--headless", "--disable-gpu", "--print-to-pdf", "https://shgrid.dev"]
-  #   command: ["tail", "-f", "/dev/null"]
-  #   working_dir: /output
-  #   user: root
-  #   init: true 
-  #   volumes:
-  #     - ./output:/output
-  #
