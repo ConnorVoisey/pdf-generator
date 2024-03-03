@@ -15,8 +15,10 @@
     "typescript": "5"
   },
   "dependencies": {
+    "@elysiajs/html": "^0.8.0",
     "@elysiajs/swagger": "^0.8.5",
     "elysia": "0.8",
-    "puppeteer": "^22.0.0"
+    "puppeteer": "^22.0.0",
+    "uuidv7": "^0.6.3"
   }
 }

@@ -3,10 +3,10 @@ version: '3.8'
 services:
   puppeteer:
     build: 
-      context: .
-      dockerfile: docker/dev.dockerfile
+      context: packages/elysia_backend
+      dockerfile: ./docker/dev.dockerfile
     ports:
-      - '3000:3000'
+      - '8000:8000'
     cap_add:
       - SYS_ADMIN
     stdin_open: true
@@ -19,6 +19,7 @@ services:
     # user: bun
     user: pptruser
     volumes:
-      - ./src:/app/src
-      - ./test:/app/test
-      - ./output:/output
+      - ./packages/elysia_backend/src:/app/src
+      - ./packages/elysia_backend/.env:/app/.env
+      - ./packages/elysia_backend/test:/app/test
+      - ./packages/elysia_backend/output:/output
